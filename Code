@@ -1,0 +1,18 @@
+def knight_animal(name, anim_name):
+    flag = False
+    for i in animals:
+        if name == i:
+            flag = True
+
+    if flag:
+        for key, value in animals.items():
+            if key == name:
+                if anim_name not in animals[key]:
+                    value.append(anim_name)
+    else:
+        animals[name] = list(anim_name)
+    b = []
+    for t in animals[name]:
+        if len(set(t.lower()) & set(anim_name.lower())) >= 3:
+            b.append(t)
+    return sorted(list(set(b)), reverse=True)
